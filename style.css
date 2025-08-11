@@ -5,7 +5,7 @@ body {
     background: #f0f2f5;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     height: 136vh;
 }
 
@@ -65,4 +65,65 @@ button {
 
 button:hover {
     background-color: #0056b3;
+}
+
+
+/* Contenedor general en filas */
+
+.contenedor-principal {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 90%;
+    max-width: 1200px;
+}
+
+
+/* Formulario de ingreso a la izquierda */
+
+.contenedor-ingreso {
+    flex: 1;
+    margin-right: 20px;
+}
+
+
+/* Contenedor derecho con consulta + resultado */
+
+.contenedor-derecho {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 20px;
+}
+
+
+/* Formulario de consulta arriba */
+
+.form-consulta {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Resultado abajo */
+
+.resultado {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.resultado textarea {
+    width: 100%;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    resize: none;
+    box-sizing: border-box;
+    font-family: monospace;
 }

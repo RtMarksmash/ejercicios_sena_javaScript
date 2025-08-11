@@ -1,5 +1,8 @@
 const boton = document.getElementById("boton");
 boton.addEventListener("click", insertarPersonas);
+const botonBusqueda = document.getElementById("botonBusqueda");
+botonBusqueda.addEventListener("click", buscarRadioEscuchas);
+
 
 let RadioEscuchas = [];
 
@@ -41,12 +44,58 @@ function insertarPersonas() {
         ciudadDeOrigen: origen,
         artista: {
             nombre: artista,
-            CancionesFavoritas: [favorito1,favorito2,favorito3]
+            CancionesFavoritas: [favorito1, favorito2, favorito3]
         }
     };
 
+    if (RadioEscuchas.length > 5) {
+        return alert(" haz superado el maximo permitido en esta rifa es de 6 persona");
+
+    };
 
     RadioEscuchas.push(persona);
 
     console.log(RadioEscuchas);
+    //console.log(RadioEscuchas.artista)
+
+    inputNombre.value = "";
+    inputCedula.value = "";
+    inputFecha.value = "";
+    inputEmail.value = "";
+    inputResidencia.value = "";
+    inputOrigen.value = "";
+    inputArtista.value = "";
+    inputFavorito1.value = "";
+    inputFavorito2.value = "";
+    inputFavorito3.value = "";
+
+};
+
+
+function buscarRadioEscuchas() {
+
+    let input = document.getElementById("busqueda");
+    const numeroEncuestado = input.value
+
+
+    if (isNaN(numeroEncuestado) || numeroEncuestado < 0 || numeroEncuestado >= RadioEscuchas.length) {
+        alert("Índice no válido o no hay persona en esa posición.");
+        return;
+    }
+
+    const mostrar = RadioEscuchas[numeroEncuestado];
+
+    alert(`el radio escucha solicitado es: 
+        nombre: ${mostrar.nombre}
+        cedula: ${mostrar.cedula}
+        fecha de nacimiento: ${mostrar.fechaDeNacimiento}
+        email: ${mostrar.email}
+        ciudad de residencia: ${mostrar.ciudadDeResidencia}
+        ciudad de origen: ${mostrar.ciudadDeOrigen}
+        nombre del artista favorito: ${mostrar.artista.nombre}
+        cancion favorita 1: ${mostrar.artista.CancionesFavoritas[0]}
+        cancion favorita 2: ${mostrar.artista.CancionesFavoritas[1]}
+        cancion favorita 3: ${mostrar.artista.CancionesFavoritas[2]}
+        ganador de la rifa entre los encuestados`)
+
 }
